@@ -40,7 +40,7 @@ public class ListasController {
 
 	@GetMapping("/nova")
 	public ModelAndView nova(Lista lista) {
-		ModelAndView mv = new ModelAndView("lista/CadastroLista");
+		ModelAndView mv = new ModelAndView("CadastroLista");
 		
 		setUuid(lista);
 		
