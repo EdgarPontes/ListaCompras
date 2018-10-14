@@ -31,14 +31,17 @@ public class Produto implements Serializable {
 	@NotNull(message = "Valor é obrigatório")
 	@DecimalMin(value = "0.10", message = "O valor da cerveja deve ser maior que R$0,50")
 	@DecimalMax(value = "9999999.99", message = "O valor da cerveja deve ser menor que R$9.999.999,99")
-	private BigDecimal valor;
+	@Column(name = "valor_produto")
+	private BigDecimal valorProduto;
 
 	@Column(name = "codigo_barras")
-	private Integer codigoBarras;
+	private Long codigoBarras;
 
 	@Column(name = "descricao")
 	@Size(max = 50, message = "O tamanho da descrição deve estar entre 1 e 50")
 	private String descricao;
+	
+	private String medida;
 
 	public Long getCodigo() {
 		return codigo;
@@ -56,19 +59,19 @@ public class Produto implements Serializable {
 		this.nome = nome;
 	}
 
-	public BigDecimal getValor() {
-		return valor;
+	public BigDecimal getValorProduto() {
+		return valorProduto;
 	}
 
-	public void setPrecoUnitario(BigDecimal valor) {
-		this.valor = valor;
+	public void setValorProduto(BigDecimal valorProduto) {
+		this.valorProduto = valorProduto;
 	}
 
-	public long getCodigoBarras() {
+	public Long getCodigoBarras() {
 		return codigoBarras;
 	}
 
-	public void setCodigoBarras(Integer codigoBarras) {
+	public void setCodigoBarras(Long codigoBarras) {
 		this.codigoBarras = codigoBarras;
 	}
 
@@ -78,6 +81,14 @@ public class Produto implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public String getMedida() {
+		return medida;
+	}
+
+	public void setMedida(String medida) {
+		this.medida = medida;
 	}
 
 	@Override
@@ -105,4 +116,11 @@ public class Produto implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Produto [codigo=" + codigo + ", nome=" + nome + ", valor=" + valorProduto + ", codigoBarras=" + codigoBarras
+				+ ", descricao=" + descricao + "]";
+	}
+
+	
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:data="http://www.thymeleaf.org/extras/data">
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th class="text-center">Produto</th>
+				<th class="text-center">Preço unitário</th>
+				<th class="text-center">Quantidade</th>
+				<th class="text-center">Preço total</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="js-tabela-item" th:each="item : ${itens}" data:valor-total="${valorTotal}">
+				<td th:text="${item.produto.nome}"></td>
+				<td class="text-center col-md-2">
+					<input type="text" class="eb-tabela-item-input" th:value="${{item.valorUnitario}}" />
+				</td>
+				<td class="text-center col-md-2">
+					<input type="text" class="eb-tabela-item-input js-tabela-item-quantidade" 
+					th:value="${{item.quantidade}}" data:codigo-produto="${item.produto.codigo}"/>
+				</td>
+				<td class="text-center" th:text="${{item.valorTotal}}"></td>
+			</tr>
+			<tr>
+				<td colspan="4" th:if="${itens.empty}">
+					<span>Você ainda não adicionou nenhum produto</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</html>

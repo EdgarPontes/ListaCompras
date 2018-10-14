@@ -30,19 +30,21 @@ public class ListasController {
 	private TabelasItensSession tabelaItens;
 	
 	@Autowired
-	private ListaValidator listaValidator;
+	private Produtos produtos;
 	
 	@Autowired
-	private Produtos produtos;
+	private ListaValidator listaValidator;
 	
 	@Autowired
 	private CadastroListaService cadastroListaService;
 
 	@GetMapping("/nova")
-	public ModelAndView nova(Lista lista) {
-		ModelAndView mv = new ModelAndView("CadastroLista");
+	public ModelAndView nova(Lista lista, Produto produto) {
+		ModelAndView mv = new ModelAndView("CadastroListas");
 		
 		setUuid(lista);
+		
+		mv.addObject(produto);
 		
 		mv.addObject("itens", lista.getItens());
 		
@@ -53,7 +55,7 @@ public class ListasController {
 	public ModelAndView salvar(Lista lista, BindingResult result, RedirectAttributes attributes) {
 		validarLista(lista, result);
 		if (result.hasErrors()) {
-			return nova(lista);
+			return null;
 		}
 		
 		cadastroListaService.salvar(lista);
@@ -61,10 +63,12 @@ public class ListasController {
 		return new ModelAndView("redirect:/listas/nova");
 	}
 	
-	@PostMapping("/item")
-	public ModelAndView adicionarItem(Long codigoCerveja, String uuid) {
-		Produto produto = produtos.getOne(codigoCerveja);
+	@PostMapping(value = "/item")
+	public ModelAndView adicionarItem(Long codigoItem, String uuid) {
+
+		Produto produto = produtos.getOne(codigoItem);
 		tabelaItens.adicionarItem(uuid, produto, 1);
+		
 		return mvTabelaItensLista(uuid);
 	}
 	
@@ -89,7 +93,7 @@ public class ListasController {
 	}
 	
 	private ModelAndView mvTabelaItensLista(String uuid) {
-		ModelAndView mv = new ModelAndView("lista/TabelaItensLista");
+		ModelAndView mv = new ModelAndView("TabelaItemLista");
 		mv.addObject("itens", tabelaItens.getItens(uuid));
 		mv.addObject("valorTotal", tabelaItens.getValorTotal(uuid));
 		return mv;

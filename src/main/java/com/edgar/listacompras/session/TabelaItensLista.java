@@ -37,7 +37,7 @@ class TabelaItensLista {
 			itemLista = new ItemLista();
 			itemLista.setProduto(produto);
 			itemLista.setQuantidade(quantidade);
-			itemLista.setValorUnitario(produto.getValor());
+			itemLista.setValorUnitario(produto.getValorProduto());
 			itens.add(0, itemLista);
 		}
 	}

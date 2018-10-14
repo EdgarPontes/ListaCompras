@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{LayoutP}"
+	xmlns:data="http://www.thymeleaf.org/extras/data">
+<head>
+<title>Lista de compras</title>
+<link rel="stylesheet" th:href="@{/css/easy-autocomplete.min.css}" />
+<link rel="stylesheet"
+	th:href="@{/css/easy-autocomplete.themes.min.css}" />
+
+</head>
+
+<section layout:fragment="conteudo">
+	<div layout:insert="MensagemGeral"></div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="clearfix">
+				<h1 class="panel-title eb-titulo-panel">Lista de compras</h1>
+			</div>
+		</div>
+
+		<div class="panel-body">
+			<form method="POST" action="/listas/nova"
+				class="js-formulario-principal">
+				<input type="hidden" th:object="${lista}" /> <input type="hidden"
+					id="lista" name="uuid" th:field="*{lista.uuid}"
+					th:value="*{lista.uuid}" />
+
+
+				<div class="row" id="produtos">
+					<div class="col-md-12">
+						<div class="col-md-12">
+							<div class="col-md-8">
+								<!--<a class="btn btn-link btn-xs" data-toggle="modal"
+								data-target="#cadastroModalProduto" title="Incluir"	rel="tooltip" data-placement="top">
+								<button type="submit" class="btn btn-primary">Incluir produto</button>
+							</a>-->
+								<input type="text" class="form-control  js-nome-item-input"
+									id="produto"
+									placeholder="Pesquise e adicione o produto pelo nome"
+									autofocus="autofocus" data:url="@{/produtos}" />
+							</div>
+							<div class="col-sm-4">
+								<div class="aw-box  js-valor-total-box-container">
+									<div class="aw-box__icon">
+										<i class="fa  fa-usd  fa-3x"></i>
+									</div>
+									<div class="aw-box__title">Total Lista</div>
+									<div class="aw-box__value">
+										R$<span class="js-valor-total-box"
+											th:text="${{lista.valorTotal}}">0,00</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-12 js-tabela-itens-container"
+						data:valor="${valorTotalItens}">
+						<th:block th:replace="TabelaItemLista" />
+					</div>
+				</div>
+				<div class="row" style="clear: both">
+					<div class="col-lg-12 botao">
+						<div class="btn-group">
+							<button type="submit" class="btn  btn-primary  js-submit-btn"
+								data:acao="salvar">Salvar</button>
+<!-- 							<button type="button" class="btn  btn-primary  dropdown-toggle" data-toggle="dropdown"> -->
+<!-- 								<span class="caret"></span> -->
+<!-- 							</button> -->
+						</div>
+						<button class="btn  btn-danger  js-submit-btn"
+							data:acao="cancelar" th:unless="${lista.nova}">Cancelar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div layout:insert="CadastroProduto"></div>
+	</div>
+	<th:block th:replace="TemplateAutocompleteProduto"></th:block>
+</section>
+<th:block layout:fragment="javascript-extra">
+	<script src="/js/jquery.easy-autocomplete.min.js"></script>
+	<script src="/js/handlebars.min.js"></script>
+
+	<script src="/js/lista.autocomplete-itens.js"></script>
+	<script src="/js/lista.tabela-itens.js"></script>
+	<script src="/js/lista.js"></script>
+	<script src="/js/lista.botao-submit.js"></script>
+</th:block>
+</html>

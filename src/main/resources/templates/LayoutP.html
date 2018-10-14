@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:data="http://www.thymeleaf.org/extras/data">
 
 <head>
 	<meta charset="UTF-8"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width" />
 	<title>Lista de compras</title>
+	
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap-datepicker.standalone.min.js">
+	
 </head>
 
 <body>
@@ -19,13 +21,24 @@
 	<section layout:fragment="conteudo">
 		<p>Conteúdo principal</p>
 	</section>
-
-	<script src="/js/jquery-2.1.4.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	
+	<script src="/js/vendors.min.js"></script>
+	<script src="/js/easybuy.js"></script>
+	
+	<!-- <script src="/js/jquery.maskMoney.min.js"></script> -->
+	<script src="/js/jquery.masknumber.min.js"></script>
+	<script src="/js/jquery.mask.min.js"></script>
+	
+	
 	<script src="/js/bootstrap-datepicker.min.js"></script>
-	<script src="/js/bootstrap-datepicker.pt-BR.min.js"></script>
-	<script src="/js/jquery.maskMoney.min.js"></script>
-	<script src="/js/usuario.js"></script>
-	<script src="/js/ponto.js"></script>
+	<!-- <script src="/js/bootstrap-datepicker.pt-BR.min.js"></script> -->
+	
+	<script src="/js/numeral.min.js"></script>
+	<script src="/js/pt-br.min.js"></script>
+	
+	<script src="/js/listaCompras.js"></script>
+	
+	<th:block layout:fragment="javascript-extra"></th:block>
+
 </body>
 </html>
