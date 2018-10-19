@@ -1,5 +1,6 @@
 package com.edgar.listacompras.controller;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,10 +73,18 @@ public class ListasController {
 		return mvTabelaItensLista(uuid);
 	}
 	
-	@PutMapping("/item/{codigoProduto}")
+	@PutMapping("/item/{codigoProduto}/quantidade")
 	public ModelAndView alterarQuantidadeItem(@PathVariable("codigoProduto") Produto produto
 			, Integer quantidade, String uuid) {
 		tabelaItens.alterarQuantidadeItens(uuid, produto, quantidade);
+		
+		return mvTabelaItensLista(uuid);
+	}
+	@PutMapping("/item/{codigoProduto}/valor")
+	public ModelAndView alterarQuantidadeItem(@PathVariable("codigoProduto") Produto produto
+			,String uuid, BigDecimal valor) {
+		tabelaItens.alterarValorItens(uuid, produto, valor);
+		
 		return mvTabelaItensLista(uuid);
 	}
 	

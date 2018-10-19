@@ -47,6 +47,11 @@ class TabelaItensLista {
 		 itemLista.setQuantidade(quantidade);
 	}
 	
+	public void alterarValorItens(Produto produto, BigDecimal valor) {
+		ItemLista itemLista = buscarItemPorProduto(produto).get();
+		itemLista.setValorUnitario(valor);
+	}
+	
 	public void excluirItem(Produto produto) {
 		int indice = IntStream.range(0, itens.size())
 				.filter(i -> itens.get(i)

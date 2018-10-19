@@ -12,6 +12,7 @@ ListaCompras.TabelaItens = (function() {
 		this.autocomplete.on('item-selecionado', onItemSelecionado.bind(this));
 		
 		bindQuantidade.call(this);
+		bindValor.call(this);
 		bindTabelaItem.call(this);
 	}
 	
@@ -36,6 +37,7 @@ ListaCompras.TabelaItens = (function() {
 		this.tabelaItensContainer.html(html);
 		
 		bindQuantidade.call(this);
+		bindValor.call(this);
 		
 		var tabelaItem = bindTabelaItem.call(this); 
 		this.emitter.trigger('tabela-itens-atualizada', tabelaItem.data('valor-total'));
@@ -53,10 +55,27 @@ ListaCompras.TabelaItens = (function() {
 		var codigoItem = input.data('codigo-produto');
 		
 		var resposta = $.ajax({
-			url: 'item/' + codigoItem,
+			url: 'item/' + codigoItem + '/quantidade',
 			method: 'PUT',
 			data: {
 				quantidade: quantidade,
+				uuid: this.uuid
+			}
+		});
+		
+		resposta.done(onItemAtualizadoNoServidor.bind(this));
+	}
+	
+	function onValorItemAlterado(evento) {
+		var input = $(evento.target);
+		var valor = input.val();
+		var codigoItem = input.data('codigo-produto');
+		
+		var resposta = $.ajax({
+			url: 'item/' + codigoItem + '/valor',
+			method: 'PUT',
+			data: {
+				valor: valor,
 				uuid: this.uuid
 			}
 		});
@@ -76,6 +95,12 @@ ListaCompras.TabelaItens = (function() {
 		});
 		
 		resposta.done(onItemAtualizadoNoServidor.bind(this));
+	}
+	
+	function bindValor() {
+		var valorItemInput = $('.js-tabela-item-valor');
+		valorItemInput.on('change', onValorItemAlterado.bind(this));
+		
 	}
 	
 	function bindQuantidade() {

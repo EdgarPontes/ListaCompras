@@ -1,5 +1,6 @@
 package com.edgar.listacompras.session;
 
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -25,6 +26,11 @@ public class TabelasItensSession {
 	public void alterarQuantidadeItens(String uuid, Produto produto, Integer quantidade) {
 		TabelaItensLista tabela = buscarTabelaPorUuid(uuid);
 		tabela.alterarQuantidadeItens(produto, quantidade);
+	}
+	
+	public void alterarValorItens(String uuid, Produto produto, BigDecimal valor) {
+		TabelaItensLista tabela = buscarTabelaPorUuid(uuid);
+		tabela.alterarValorItens(produto, valor);
 	}
 
 	public void excluirItem(String uuid, Produto produto) {

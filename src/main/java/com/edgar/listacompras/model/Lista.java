@@ -15,8 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
 @Table(name = "lista")
+@DynamicUpdate
 public class Lista {
 
 	@Id
@@ -35,18 +38,6 @@ public class Lista {
 	@Transient
 	private String uuid;
 	
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
-
-	public boolean isNova() {
-		return codigo == null;
-	}
-
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -77,6 +68,18 @@ public class Lista {
 
 	public void setItens(List<ItemLista> itens) {
 		this.itens = itens;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
+	public boolean isNova() {
+		return codigo == null;
 	}
 	
 	public void adicionarItens(List<ItemLista> itens) {
@@ -114,8 +117,5 @@ public class Lista {
 		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
-	}
-	
-	
-	
+	}	
 }

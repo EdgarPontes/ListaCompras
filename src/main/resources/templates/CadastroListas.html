@@ -23,11 +23,9 @@
 		</div>
 
 		<div class="panel-body">
-			<form method="POST" action="/listas/nova"
-				class="js-formulario-principal">
-				<input type="hidden" th:object="${lista}" /> <input type="hidden"
-					id="lista" name="uuid" th:field="*{lista.uuid}"
-					th:value="*{lista.uuid}" />
+			<form method="POST" action="/listas/nova" class="js-formulario-principal">
+				<input type="hidden" th:object="${lista}" /> 
+				<input type="hidden" id="lista" name="uuid" th:field="*{lista.uuid}" th:value="*{lista.uuid}" />
 
 
 				<div class="row" id="produtos">
@@ -50,16 +48,14 @@
 									</div>
 									<div class="aw-box__title">Total Lista</div>
 									<div class="aw-box__value">
-										R$<span class="js-valor-total-box"
-											th:text="${{lista.valorTotal}}">0,00</span>
+										R$<span class="js-valor-total-box" th:text="${{lista.valorTotal}}">0,00</span>
 									</div>
 								</div>
 							</div>
 						</div>
 
 					</div>
-					<div class="col-md-12 js-tabela-itens-container"
-						data:valor="${valorTotalItens}">
+					<div class="col-md-12 js-tabela-itens-container" data:valor="${valorTotalItens}">
 						<th:block th:replace="TabelaItemLista" />
 					</div>
 				</div>
@@ -68,11 +64,8 @@
 						<div class="btn-group">
 							<button type="submit" class="btn  btn-primary  js-submit-btn"
 								data:acao="salvar">Salvar</button>
-<!-- 							<button type="button" class="btn  btn-primary  dropdown-toggle" data-toggle="dropdown"> -->
-<!-- 								<span class="caret"></span> -->
-<!-- 							</button> -->
 						</div>
-						<button class="btn  btn-danger  js-submit-btn"
+						<button type="submit" class="btn  btn-danger  js-submit-btn"
 							data:acao="cancelar" th:unless="${lista.nova}">Cancelar</button>
 					</div>
 				</div>
