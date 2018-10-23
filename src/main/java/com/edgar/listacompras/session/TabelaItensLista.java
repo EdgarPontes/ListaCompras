@@ -26,12 +26,12 @@ class TabelaItensLista {
 	}
 	
 	public void adicionarItem(Produto produto, Integer quantidade) {
-		Optional<ItemLista> itemVendaOptional = buscarItemPorProduto(produto); 
+		Optional<ItemLista> itemListaOptional = buscarItemPorProduto(produto); 
 		
 		ItemLista itemLista = null;
 		
-		if (itemVendaOptional.isPresent()) {
-			itemLista = itemVendaOptional.get();
+		if (itemListaOptional.isPresent()) {
+			itemLista = itemListaOptional.get();
 			itemLista.setQuantidade(itemLista.getQuantidade() + quantidade);		
 		}else {
 			itemLista = new ItemLista();

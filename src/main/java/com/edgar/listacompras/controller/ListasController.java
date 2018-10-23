@@ -59,11 +59,17 @@ public class ListasController {
 			return null;
 		}
 		
+		lista.setValorTotal(lista.getValorTotalItens());
 		cadastroListaService.salvar(lista);
 		attributes.addFlashAttribute("mensagem", "Lista salva com sucesso");
 		return new ModelAndView("redirect:/listas/nova");
 	}
 	
+	@PostMapping(value="/nova", params = "cancelar")
+	public ModelAndView cancelar(Lista lista, BindingResult result, RedirectAttributes attributes) {
+		
+		return new ModelAndView("redirect:/listas/nova");
+	}
 	@PostMapping(value = "/item")
 	public ModelAndView adicionarItem(Long codigoItem, String uuid) {
 

@@ -1,3 +1,11 @@
+.eb-layout-page {
+	position: relative;
+	overflow-x: hidden;
+	width: 100%;
+	min-height: 100%;
+	padding-bottom: 60px;
+}
+
 /* Tela grande */
 @media (min-width: 768px) {
 	.panel-default {
@@ -13,21 +21,21 @@
 /* 	td { */
 /* 		font-size: 10px; */
 /* 	} */
-		.bw-tabela-item__painel-exclusao {
+		.lc-tabela-item__painel-exclusao {
 		width: 40%;
 		padding-top: 10px;
 	}
 	
-	.bw-tabela-item__coluna {
+	.lc-tabela-item__coluna {
 		float: left;
 		margin-left: 0px;
 	}
 	
-	.bw-tabela-item__coluna--detalhes {
+	.lc-tabela-item__coluna--detalhes {
 		width: calc(70% - 30px);
 	}
 	
-	.bw-tabela-item__coluna--valores {
+	.lc-tabela-item__coluna--valores {
 		width: calc(30% - 30px);
 
 		text-align: right;
@@ -61,26 +69,26 @@
 }
 
 /* Box Valor Total*/
-.negativo .aw-box__value {
+.negativo .eb-box__value {
 	color: red;
 }
 
-.aw-box {
+.eb-box {
   padding: 5px;
   margin-bottom: 10px;
   border: 1px solid #eeeeee;
   border-bottom: 3px solid #1e94d2;
 }
-.aw-box__icon {
+.eb-box__icon {
   float: left;
   color: #1e94d2;
 }
-.aw-box__value {
+.eb-box__value {
   font-size: 1.69em;
   font-weight: 300;
   text-align: right;
 }
-.aw-box__title {
+.eb-box__title {
   display: block;
   font-size: 1em;
   font-weight: 600;
@@ -88,7 +96,7 @@
 }
 
 /* Tabela Item */
-.bw-tabela-item {
+.lc-tabela-item {
 	position: relative; /* Para que o painel de exclusão apareça dentro da linha */
 	
 	padding: 15px 0;
@@ -103,55 +111,64 @@
 	font-size: 13px	
 }
 
-.bw-tabela-item:after {
+.lc-tabela-item:after {
 	clear: both;
 	display: block;
     content: "";
 }
 
-.bw-tabela-item ~ .bw-tabela-item {
+.lc-tabela-item ~ .lc-tabela-item {
 	border-top: 1px solid #ddd;
 }
 
-.bw-tabela-item__coluna {
+.lc-tabela-item__coluna {
 	padding: 0 10px;
 }
 
-.bw-tabela-item__coluna--valores {
+.lc-tabela-item__coluna--valores {
 	padding-right: 0px;
 }
 
-.bw-tabela-item__coluna--detalhes, .bw-tabela-item__coluna--valores {
+.lc-tabela-item__coluna--detalhes, .lc-tabela-item__coluna--valores {
 	margin-left: 60px;
 }
 
-.bw-tabela-produto-nome {
+.lc-tabela-item__vazio {
+	padding: 15px 15px;
+	border: 1px dashed #ddd;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: 300;
+	color: #555;
+}
+
+.lc-tabela-produto-nome {
 	font-weight: 500;
 	font-size: 1.1em;
 	display: block;
 }
 
-.bw-tabela-produto-campo-quantidade {
+.lc-tabela-produto-campo-quantidade {
 	width: 30px;
 	text-align: right;
 }
 
-.bw-tabela-produto-valor-pequeno {
+.lc-tabela-produto-valor-pequeno {
 	font-weight: 300;
 	font-size: 1em;
 }
 
-.bw-tabela-produto-valor-medio {
+.lc-tabela-produto-valor-medio {
 	font-weight: 300;
 	font-size: 1.3em;
 }
 
-.bw-tabela-produto-valor-grande {
+.lc-tabela-produto-valor-grande {
 	font-weight: 300;
 	font-size: 1.6em;
 }
 
-.bw-tabela-item__painel-exclusao {
+.lc-tabela-item__painel-exclusao {
     position: absolute;
     top: 0;
     right: 100000px;
@@ -167,12 +184,12 @@
 	transition: opacity 0.5s;
 }
 
-.solicitando-exclusao .bw-tabela-item__painel-exclusao {
+.solicitando-exclusao .lc-tabela-item__painel-exclusao {
 	right: 0;
 	opacity: 1;
 }
 
-.bw-tabela-item__titulo-exclusao {
+.lc-tabela-item__titulo-exclusao {
     display: block;
     margin-bottom: 5px;
     

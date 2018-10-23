@@ -16,29 +16,30 @@
 </head>
 
 <body>
-	<header layout:insert="Cabecalho"></header>
-
-	<section layout:fragment="conteudo">
-		<p>Conteúdo principal</p>
-	</section>
+	<div class="eb-layout-page">
+		<header layout:insert="Cabecalho"></header>
 	
-	<script src="/js/vendors.min.js"></script>
-	<script src="/js/easybuy.js"></script>
-	
-	<!-- <script src="/js/jquery.maskMoney.min.js"></script> -->
-	<script src="/js/jquery.masknumber.min.js"></script>
-	<script src="/js/jquery.mask.min.js"></script>
-	
-	
-	<script src="/js/bootstrap-datepicker.min.js"></script>
-	<!-- <script src="/js/bootstrap-datepicker.pt-BR.min.js"></script> -->
-	
-	<script src="/js/numeral.min.js"></script>
-	<script src="/js/pt-br.min.js"></script>
-	
-	<script src="/js/listaCompras.js"></script>
-	
-	<th:block layout:fragment="javascript-extra"></th:block>
-
+		<section layout:fragment="conteudo">
+			<p>Conteúdo principal</p>
+		</section>
+		
+		<script src="/js/vendors.min.js"></script>
+		<script src="/js/easybuy.js"></script>
+		
+		<!-- <script src="/js/jquery.maskMoney.min.js"></script> -->
+		<script src="/js/jquery.masknumber.min.js"></script>
+		<script src="/js/jquery.mask.min.js"></script>
+		
+		
+		<script src="/js/bootstrap-datepicker.min.js"></script>
+		<!-- <script src="/js/bootstrap-datepicker.pt-BR.min.js"></script> -->
+		
+		<script src="/js/numeral.min.js"></script>
+		<script src="/js/pt-br.min.js"></script>
+		
+		<script src="/js/listaCompras.js"></script>
+		
+		<th:block layout:fragment="javascript-extra"></th:block>
+	</div>
 </body>
 </html>

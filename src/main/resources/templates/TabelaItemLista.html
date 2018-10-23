@@ -1,44 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:data="http://www.thymeleaf.org/extras/data">
 
-<div class="table-responsive">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th class="text-center">Produto</th>
-				<th class="text-center">Preço unitário</th>
-				<th class="text-center">Quantidade</th>
-				<th class="text-center">Preço total</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr class="js-tabela-item" th:each="item : ${itens}" data:valor-total="${valorTotal}">
-				<td th:text="${item.produto.nome}"></td>
-				<td class="text-center col-md-2">
-					<input type="text" class="eb-tabela-item-input js-tabela-item-valor" 
-					th:value="${{item.valorUnitario}}" data:codigo-produto="${item.produto.codigo}" />
-				</td>
-				<td class="text-center col-md-2">
-					<input type="text" maxlength="3" class="eb-tabela-item-input js-tabela-item-quantidade" 
+	<div class="lc-tabela-item  js-tabela-item" th:each="item : ${itens}" data:valor-total="${valorTotal}">
+		
+		<div class="lc-tabela-item__coluna  lc-tabela-item__coluna--detalhes">
+			<span class="lc-tabela-item-nome" th:text="${item.produto.nome}"></span>
+			<span class="label  label-default" th:text="${item.produto.codigoBarras}"></span>
+			<span class="" th:text="${item.produto.descricao}"></span>
+		</div>
+		
+		<div class="lc-tabela-item__coluna  lc-tabela-item__coluna--valores">
+			<div class="lc-tabela-produto-valor-pequeno">
+				<input type="text" maxlength="3" 
+					class="eb-tabela-item-input js-tabela-item-quantidade" 
 					th:value="${item.quantidade}" data:codigo-produto="${item.produto.codigo}"/>
-				</td>
-				<td class="text-center" th:text="${{item.valorTotal}}"></td>
-				<td>
-					<div class="bw-tabela-item__painel-exclusao" >
-					<span class="bw-tabela-item__titulo-exclusao">Excluir este item da lista?</span>
-					<button type="button" class="btn  btn-danger  js-exclusao-item-btn"
-					data:codigo-produto="${item.produto.codigo}">Sim, excluir!</button>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="4" th:if="${itens.empty}">
-					<span>Você ainda não adicionou nenhum produto</span>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+				<span>x <input type="text" class="eb-tabela-item-input js-tabela-item-valor" 
+					th:value="${{item.valorUnitario}}" data:codigo-produto="${item.produto.codigo}" />
+				</span>
+				<span>= R$[[${{item.valorTotal}}]]</span>
+			</div>
+			
+		</div>
+		
+		<div class="lc-tabela-item__painel-exclusao" >
+			<span class="lc-tabela-item__titulo-exclusao">Excluir este item da lista?</span>
+			<button type="button" class="btn  btn-danger  js-exclusao-item-btn"
+				data:codigo-produto="${item.produto.codigo}">Sim, excluir!</button>
+		</div>
+	</div>
+	
+	<div class="lc-tabela-item__vazio" th:if="${itens.empty}">
+		<i class="glyphicon  glyphicon-shopping-cart"></i> 
+		<span>Você ainda não adicionou nenhum produto.</span>
+	</div>
 </html>
