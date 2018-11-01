@@ -47,10 +47,10 @@ ListaCompras.TabelaItens = (function() {
 		var input = $(evento.target);
 		var quantidade = input.val();
 		
-		if (quantidade <= 0) {
-			input.val(1);
-			quantidade = 1;
-		}
+//		if (quantidade <= 0) {
+//			input.val(1);
+//			quantidade = 1;
+//		}
 		
 		var codigoItem = input.data('codigo-produto');
 		
@@ -111,8 +111,8 @@ ListaCompras.TabelaItens = (function() {
 	
 	function bindTabelaItem() {
 		var tabelaItem = $('.js-tabela-item');
-		tabelaItem.on('dbclick', onDoubleClick);
-		$('.js-exclusao-item-btn').on(onExclusaoItemClick.bind(this));
+		tabelaItem.on('dblclick', onDoubleClick);
+		$('.js-exclusao-item-btn').on('click',onExclusaoItemClick.bind(this));
 		return tabelaItem;
 	}
 	

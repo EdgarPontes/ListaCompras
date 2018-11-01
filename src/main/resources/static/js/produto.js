@@ -4,25 +4,26 @@ var numeroLista = document.querySelector('#lista');
 
 botaoSalvarProduto.addEventListener('click', function(){
 
-	$.post("item",
-		    {
-				nomeProduto:produto.nome.value,
-				uuid:numeroLista.value,
-				quantidade:produto.quantidade.value
-		    },
-		    function(data, status){
-		        alert("Data: " + data + "\nStatus: " + status);
-		    });
-//	var resposta = $.ajax({
-//		url: 'item',
-//		method: 'POST',
-//		data: {
-//			nomeProduto:produto.nome.value,
-//			uuid:numeroLista.value,
-//			quantidade:produto.quantidade.value
-//		}
-//	});	   
-
+//	$.post("produtos",
+//		    {
+//				nomeProduto:produto.nome.value,
+//				uuid:numeroLista.value,
+//				quantidade:produto.quantidade.value
+//		    },
+//		    function(data, status){
+//		        alert("Data: " + data + "\nStatus: " + status);
+//		    });
+	var resposta = $.ajax({
+		url: 'produtos',
+		method: 'POST',
+		data: {
+			nomeProduto:produto.nome.value,
+			valorProduto:produto.valorProduto.value,
+			codigoBarras:produto.codigoBarras.value,
+			medida:produto.medida.value,
+			uuid:produto.lista.uuid
+		}
+	});	   
 });
 
 $('#cadastroModalProduto').on('show.bs.modal', function(event) {
@@ -41,13 +42,4 @@ $('#cadastroModalProduto').on('show.bs.modal', function(event) {
 
 	modal.find('.modal-body span').html('<strong> salvar </strong>?');
 
-});
-
-$(function() {
-	$('[rel="tooltip"]').tooltip();
-	$('.js-decimal').maskMoney({
-		decimal : ',',
-		thousands : '.',
-		allowZero : true
-	});
 });

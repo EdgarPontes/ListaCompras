@@ -11,7 +11,7 @@ EB.onSearchModalShowRequest = function(event) {
   event.preventDefault();
 
   $('.js-search-modal').fadeIn('slow');
-  $('body').addClass('aw-no-scroll');
+  $('body').addClass('eb-no-scroll');
   
   $('.js-search-modal-input').val('').select();
   
@@ -21,7 +21,7 @@ EB.onSearchModalCloseRequest = function(event) {
   event.preventDefault();
 
   $('.js-search-modal').hide();
-  $('body').removeClass('aw-no-scroll');
+  $('body').removeClass('eb-no-scroll');
 };
 
 //EB.onFormLoadingSubmit = function(event) {
@@ -64,7 +64,7 @@ EB.onMenuGroupClick = function(event) {
 
 EB.initMenu = function() {
   $('.js-menu > ul > li > a').bind('click', EB.onMenuGroupClick);
-  $('.aw-menu__item .is-active').parents('.aw-menu__item').addClass('is-expanded is-active');
+  $('.eb-menu__item .is-active').parents('.eb-menu__item').addClass('is-expanded is-active');
 };
 
 $(function() {

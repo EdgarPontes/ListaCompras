@@ -11,34 +11,33 @@
 						<h4 class="modal-title">Cadastro produto</h4>
 					</div>
 					<div class="modal-body">
-					<form id="form-produto" method="POST" action="/produtos" th:object="${produto}">
+					<form id="form-produto" method="POST" action="/produtos" >
 						<input type="hidden" th:object="${lista}" />
 						<div class="form-group">
 							<label for="nome" class="control-label">Nome produto:</label>
-							<input type="text" class="form-control" id="nome" name="nome" th:field="*{nome}">
+							<input type="text" class="form-control" id="nome" name="nome" >
 						</div>
-						<div class="form-group">
-							<label for="quantidade" class="control-label">Quantidade:</label> 
-							<input type="text" class="form-control"	id="quantidade" name="quantidade">
-						</div>
+<!-- 						<div class="form-group"> -->
+<!-- 							<label for="quantidade" class="control-label">Quantidade:</label>  -->
+<!-- 							<input type="text" class="form-control"	id="quantidade" name="quantidade"> -->
+<!-- 						</div> -->
 						<div class="form-group">
 							<label for="valorProduto" class="control-label">valor unitário:</label> 
 							<input type="text" class="form-control js-decimal"
-								id="valorProduto" name="valorProduto" th:field="*{valorProduto}">
+								id="valorProduto" name="valorProduto" >
 						</div>
 						<div class="form-group">
 							<label for="codigoBarras" class="control-label">Codigo
 								Barras:</label> <input type="text" class="form-control"
-								id="codigoBarras" name="codigoBarras" th:field="*{codigoBarras}">
+								id="codigoBarras" name="codigoBarras" >
 						</div>
 						<div class="form-group">
-							<label for="descricao" class="control-label">Descrição:</label> <input
-								type="text" class="form-control" id="descricao" name="descricao"
-								th:filed="*{descricao}">
+							<label for="medida" class="control-label">Unidade medida:</label> <input
+								type="text" class="form-control" id="medida" name="medida">
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-link" data-dismiss="modal">Cancelar</button>
-							<button type="submit" class="btn btn-primary js-nome-item-button" th:field="*{nome}"id="botaoSalvarProduto">Salvar</button>
+							<button type="submit" class="btn btn-primary js-nome-item-button" id="botaoSalvarProduto">Salvar</button>
 						</div>
 					</form>
 				</div>

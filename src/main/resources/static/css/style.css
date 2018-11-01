@@ -6,6 +6,13 @@
 	padding-bottom: 60px;
 }
 
+.eb-section-page{
+	margin-top: 80px;	
+}
+
+.container-fluid {
+	display: table-row;
+}
 /* Tela grande */
 @media (min-width: 768px) {
 	.panel-default {
@@ -32,7 +39,7 @@
 	}
 	
 	.lc-tabela-item__coluna--detalhes {
-		width: calc(70% - 30px);
+		width: calc(50% - 30px);
 	}
 	
 	.lc-tabela-item__coluna--valores {
@@ -40,6 +47,50 @@
 
 		text-align: right;
 	}
+	
+	.lc-tabela-item__coluna--excluir {
+		whidth: calc(20% - 30px);
+	}
+}
+
+.eb-layout-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  border-top: 1px solid #eeeeee;
+  background-color: black;
+  color: white;
+  transition: all 0.5s;
+}
+.eb-footer-disclaimer {
+  font-size: 92%;
+  display: block;
+  color: #777777;
+/*   line-height: 4; */
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .eb-layout-footer.is-toggled {
+    margin-left: 0;
+  }
+}
+/* @media (min-width: 992px) { */
+/*   .eb-layout-footer { */
+/*     margin-left: 210px; */
+/*   } */
+/* } */
+
+html,
+body {
+  height: 100%;
+}
+.eb-no-scroll {
+  overflow: hidden !important;
 }
 .botao {
 	float:right;
@@ -87,6 +138,7 @@
   font-size: 1.69em;
   font-weight: 300;
   text-align: right;
+  color: #eeeeee
 }
 .eb-box__title {
   display: block;

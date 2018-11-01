@@ -9,70 +9,43 @@
 <link rel="stylesheet" th:href="@{/css/easy-autocomplete.min.css}" />
 <link rel="stylesheet"
 	th:href="@{/css/easy-autocomplete.themes.min.css}" />
-
 </head>
 
 <section layout:fragment="conteudo">
 	<div layout:insert="MensagemGeral"></div>
-		<div class="">
-			<form method="POST" th:action="@{/listas/nova}" th:object="${lista}"
-				class="js-formulario-principal">
-				<input type="hidden" id="lista" th:field="*{uuid}" /> <input
-					type="hidden" th:field="*{codigo}" />
-					
-				<div class="row" id="produtos">
-					<div class="col-md-12">
-						<div class="">
-							<div class="">
-								<!--<a class="btn btn-link btn-xs" data-toggle="modal"
-								data-target="#cadastroModalProduto" title="Incluir"	rel="tooltip" data-placement="top">
-								<button type="submit" class="btn btn-primary">Incluir produto</button>
-							</a>-->
-								<input type="text" class="form-control  js-nome-item-input"
-									id="produto"
-									placeholder="Pesquise e adicione o produto pelo nome"
-									autofocus="autofocus" data:url="@{/produtos}" />
-							</div>
-							<br/>
-							<div class="">
-								<input type="text" class="form-control" th:field="*{email}" id="email" placeholder="Digite seu email"/>
-							</div>
-							<br/>
-							<div class="">
-								<div class="eb-box  js-valor-total-box-container">
-									<div class="eb-box__value">
-										Total R$<span class="js-valor-total-box" th:field="*{{valorTotal}}" ></span>
-									</div>
-								</div>
-							</div>
-						</div>
+	<div class="">
+		<form method="POST" th:action="@{/listas/nova}" th:object="${lista}"
+			class="js-formulario-principal">
+			<input type="hidden" id="lista" th:field="*{uuid}" /> <input
+				type="hidden" th:field="*{codigo}" />
 
+			<div class="row">
+				<div class="col-md-12">
+					<div class="">
+
+						<input type="text" class=" js-nome-item-input form-control"
+							id="produto" placeholder="Pesquise o produto pelo nome"
+							autofocus="autofocus" data:url="@{/produtos}" />
 					</div>
-					<div class="js-tabela-itens-container" data:valor="${valorTotalItens}">
+					<br />
+					<div class="">
+						<input type="text" class="form-control" th:field="*{email}"
+							id="email" placeholder="Digite seu email" />
+					</div>
+
+				</div>
+				<br />
+				<div class="col-md-12">
+					<div class="js-tabela-itens-container"
+						data:valor="${valorTotalItens}">
 						<th:block th:replace="TabelaItemLista" />
 					</div>
 				</div>
-				<div >
-					<div class="botao">
-						<button type="submit" class="btn  btn-danger  js-submit-btn"
-							data:acao="cancelar">Cancelar</button>
-						<div class="btn-group">
-							<button type="submit" class="btn  btn-primary  js-submit-btn"
-								data:acao="salvar">Salvar</button>
-							<button type="button" class="btn  btn-primary  dropdown-toggle"
-								data-toggle="dropdown">
-								<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#" class="js-submit-btn"
-									data:acao="enviarEmail">Salvar e enviar por e-mail</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-		<div layout:insert="CadastroProduto"></div>
+			</div>
+		</form>
+	</div>
+
+	<div layout:insert="CadastroProduto"></div>
 
 	<th:block th:replace="TemplateAutocompleteProduto"></th:block>
 </section>
