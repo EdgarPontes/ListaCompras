@@ -1,332 +1,651 @@
-/*
-######################
-# UTILIDADES
-######################
-*/
-.eb-glyphicon-large {
-	font-size: 18px;
-}
+.eb-layout-page {
+	position: relative;
+	overflow-x: hidden;
+	width: 100%;
+	min-height: 100%;
+	padding-bottom: 60px;
+	}
 
-.eb-required > .control-label:after {
-	content: "*";
-}
-
-
-
-/*
-######################
-# COMPONENTES
-######################
-*/
-
-/* Field Action */
-.eb-field-action {
-	display: flex;
-}
-
-.eb-field-action__icon {
-	margin: 6px 0 0 5px;
-}
-
-/* Upload */
-.eb-upload {
-	padding: 15px;
+	.eb-tabela-item-input {
+		width:60px;
+		font-size: 13px	
+	}
 	
-	border: 1px dashed #ddd;
-	border-radius: 4px;
-	background: #fafafa;
-	
-	text-align: center;
-}
-
-.eb-upload-form-file {
-	display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 1px;
-}
-
-.eb-upload-form-file > input[type=file] {
+  .eb-layout-footer {
 	position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    opacity: 0;
-    cursor: pointer;
-    
-    font-size: 500px;
-}
-
-/* Tabela Simples */
-.eb-tabela-simples {
-	margin-top: 15px;
-}
-
-.eb-tabela-simples table tr th {
-	border-bottom-width: 1px;
-}
-
-.eb-tabela-simples table tr td {
-    border-top: none;
-    border-bottom: 1px solid #e7eaec;
-    padding: 10px;
-    vertical-align: middle;
-}
-
-/*
-###################
-# PÁGINAS DO SISTEMA
-###################
-*/
-
-/* Colunas comuns */
-.table-col-acoes {
-	width: 80px;
-}
-
-/* Colunas - Pesquisa de Cervejas */
-.table-cervejas-col-foto {
-	min-width: 50px;
-	width: 50px
-}
-
-.table-cervejas-col-sku {
-	width: 90px;
-	text-align: center;
-}
-
-.table-cervejas-col-nome {
-	
-}
-
-.table-cervejas-col-estilo {
-	width: 120px;
-}
-
-.table-cervejas-col-origem {
-	width: 100px;
-}
-
-.table-cervejas-col-valor {
-	width: 100px;
-	text-align: right;
-}
-
-.table-cervejas-col-acoes {
-	width: 80px;
-}
-
-/* Colunas - Pesquisa de Estilos */
-.table-estilos-col-codigo {
-	width: 80px;
-}
-
-/* Colunas - Pesquisa de Clientes */
-.table-clientes-col-nome {
-	
-}
-
-.table-clientes-col-tipo-pessoa {
-	width: 120px;
-	text-align: center;
-}
-
-.table-clientes-col-cpf-cnpj {
-	width: 140px;
-	text-align: right;
-}
-
-.table-clientes-col-telefone {
-	width: 140px;
-	text-align: right;
-}
-
-.table-clientes-col-cidade-estado {
-	width: 140px;
-	text-align: right;
-}
-
-/* Colunas - Pesquisa de cidades */
-.table-cidades-col-nome {
-	
-}
-
-.table-cidades-col-estado {
-	width: 140px;
-	text-align: right;
-}
-
-/* Colunas - Pesquisa de usuários */
-.table-usuarios-col-status {
-	width: 30px;
-	text-align: center;
-}
-
-/* Tabela Cervejas página de Venda */
-.eb-tabela-cervejas {
-	margin-bottom: 15px;
-}
-
-.eb-tabela-cervejas__vazio {
-	padding: 15px 15px;
-	
-	border: 1px dashed #ddd;
-	
-	text-align: center;
-	font-size: 1.2em;
-	font-weight: 300;
-	color: #555;
-}
-
-
-/*
-######################################
-# CUSTOMIZAÇÃO DE COMPONENTES
-######################################
-*/
-
-.checkbox input[type="checkbox"]:checked + input + label::after {
-    font-family: 'FontAwesome';
-    content: "\f00c"; 
-}
-
-/* Easy Autocomplete */
-.easy-autocomplete input {
-	border-radius: 2px !important;
-}
-
-.easy-autocomplete-container ul li {
-	font-size: 1em !important;
-	padding: 0px 5px !important;
-}
-
-/* Box */
-.negativo .aw-box__value {
-	color: red;
-}
-
-/* Tabela Item */
-.eb-tabela-item {
-	position: relative; /* Para que o painel de exclusão apareça dentro da linha */
-	
-	padding: 15px 0;
-	
-	user-select: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-}
-
-.eb-tabela-item:after {
-	clear: both;
-	display: block;
-    content: "";
-}
-
-.eb-tabela-item ~ .eb-tabela-item {
-	border-top: 1px solid #ddd;
-}
-
-.eb-tabela-item__coluna {
-	padding: 0 10px;
-}
-
-.eb-tabela-item__coluna--foto {
-	float: left;
-	width: 60px;
-	
-	text-align: center;
-}
-
-.eb-tabela-item__coluna--valores {
-	padding-right: 0px;
-}
-
-.eb-tabela-item__coluna--detalhes, .eb-tabela-item__coluna--valores {
-	margin-left: 60px;
-}
-
-.eb-tabela-cerveja-nome {
-	font-weight: 500;
-	font-size: 1.1em;
-	display: block;
-}
-
-.eb-tabela-cerveja-origem {
-	color: #aaa;
-	display: block;
-	font-weight: 200;
-}
-
-.eb-tabela-cerveja-campo-quantidade {
-	width: 30px;
-	text-align: right;
-}
-
-.eb-tabela-cerveja-valor-pequeno {
-	font-weight: 300;
-	font-size: 1em;
-}
-
-.eb-tabela-cerveja-valor-medio {
-	font-weight: 300;
-	font-size: 1.3em;
-}
-
-.eb-tabela-cerveja-valor-grande {
-	font-weight: 300;
-	font-size: 1.6em;
-}
-
-.eb-tabela-item__painel-exclusao {
-    position: absolute;
-    top: 0;
-    right: 100000px;
-	height: 100%;
-    width: 50%;
-    
-    text-align: center;
-    padding-top: 35px;
-    
-	background-color: #f0ad4e;
-	
-	opacity: 0;
-	transition: opacity 0.5s;
-}
-
-.solicitando-exclusao .eb-tabela-item__painel-exclusao {
+	left: 0;
 	right: 0;
-	opacity: 1;
-}
-
-.eb-tabela-item__titulo-exclusao {
-    display: block;
-    margin-bottom: 5px;
-    
+	bottom: 0;
+	height: 50px;
+	margin: 0;
+	border-top: 1px solid #eeeeee;
+	background-color: #eeeeec;
+  color: #2e3436;
+	transition: all 0.5s;
+  }
+  @media (min-width: 992px) {
+	.eb-layout-footer.is-toggled {
+	  margin-left: 0;
+	}
+  }
+  @media (min-width: 992px) {
+	.eb-layout-footer {
+	  margin-left: 210px;
+	}
+  }
+  .eb-layout-content {
+	position: relative;
+	margin: 0;
+	margin-top: 80px;
+	transition: all 0.5s;
+  }
+  @media (min-width: 992px) {
+	.eb-layout-content.is-toggled {
+	  margin-left: 0;
+	}
+  }
+  @media (min-width: 992px) {
+	.eb-layout-content {
+	  margin-left: 210px;
+	}
+  }
+  .eb-layout-sidebar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1000;
+	height: 100%;
+	padding-top: 54px;
+	margin-left: -211px;
+	border-right-color: #e2e2e2;
+	border-right: 1px solid;
+	border-right-color: transparent;
+	overflow-x: hidden;
+	background-color: #f6f6f6;
+	transition: all 0.5s;
+  }
+  @media (min-width: 992px) {
+	.eb-layout-sidebar {
+	  margin-left: 0px;
+	}
+  }
+  .eb-layout-sidebar.is-toggled {
+	margin-left: 0px;
+  }
+  @media (min-width: 992px) {
+	.eb-layout-sidebar.is-toggled {
+	  margin-left: -211px;
+	}
+  }
+  .eb-layout-sidebar__content {
+	position: relative;
+	overflow-y: auto;
+	height: 100%;
+	width: 210px;
+  }
+  .eb-layout-simple-page {
+	background-color: #f6f6f6;
+  }
+  .eb-layout-simple-page__container {
+	display: block;
+	max-width: 420px;
+	margin: auto;
+	padding: 0 10px;
+	padding-top: 10%;
+  }
+  .eb-layout-loading {
+	position: fixed;
+	z-index: 9998;
+	display: none;
+	width: 100%;
+	height: 100%;
+	padding-bottom: 65px;
+	text-align: center;
+  }
+  .eb-layout-loading__container {
+	display: table-cell;
+	vertical-align: middle;
+  }
+  /*--------------*\
+	Balls Spinner
+  \*--------------*/
+  @-moz-keyframes eb-balls-spinner {
+	0% {
+	  -moz-transform: rotate(-720deg);
+	  transform: rotate(-720deg);
+	}
+	50% {
+	  -moz-transform: rotate(720deg);
+	  transform: rotate(720deg);
+	}
+  }
+  @-webkit-keyframes eb-balls-spinner {
+	0% {
+	  -webkit-transform: rotate(-720deg);
+	  transform: rotate(-720deg);
+	}
+	50% {
+	  -webkit-transform: rotate(720deg);
+	  transform: rotate(720deg);
+	}
+  }
+  @keyframes eb-balls-spinner {
+	0% {
+	  -moz-transform: rotate(-720deg);
+	  -ms-transform: rotate(-720deg);
+	  -webkit-transform: rotate(-720deg);
+	  transform: rotate(-720deg);
+	}
+	50% {
+	  -moz-transform: rotate(720deg);
+	  -ms-transform: rotate(720deg);
+	  -webkit-transform: rotate(720deg);
+	  transform: rotate(720deg);
+	}
+  }
+  /* :not(:required) hides this rule from IE9 and below */
+  .eb-balls-spinner:not(:required) {
+	position: relative;
+	display: inline-block;
+	width: 65px;
+	height: 65px;
+	opacity: 0.8;
+	border-radius: 100%;
+	background: #1e94d2;
+	text-indent: -9999px;
+	-moz-animation: eb-balls-spinner 3s infinite ease-in-out;
+	-webkit-animation: eb-balls-spinner 3s infinite ease-in-out;
+	animation: eb-balls-spinner 3s infinite ease-in-out;
+	-moz-transform-origin: 50% 100%;
+	-ms-transform-origin: 50% 100%;
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+  }
+  .eb-balls-spinner:not(:required)::before {
+	position: absolute;
+	top: 48.75px;
+	left: -28.145832px;
+	opacity: 0.8;
+	border-radius: 100%;
+	width: 65px;
+	height: 65px;
+	background: #99d2f0;
+	content: '';
+  }
+  .eb-balls-spinner:not(:required)::after {
+	position: absolute;
+	top: 48.75px;
+	left: 28.145832px;
+	opacity: 0.8;
+	border-radius: 100%;
+	width: 65px;
+	height: 65px;
+	background: #1875a5;
+	content: '';
+  }
+  /*-----------------------------------------------------------*\
+	Error panel
+	- Para ser usado em páginas de erro simpls (404, 500, etc)
+  \*-----------------------------------------------------------*/
+  .eb-error-panel {
+	color: #777777;
+	text-align: center;
+  }
+  .eb-error-panel__title {
+	font-size: 32px;
+  }
+  .eb-error-panel__description {
+	display: block;
+	padding: 18px 0;
+  }
+  .eb-error-panel__code {
+	color: #d9d9d9;
+	font-size: 80px;
+	font-weight: normal;
+  }
+  /*-------------------------------------------------*\
+	Footer disclaimer
+	- Para usar na informação de copyright no rodapé
+  \*-------------------------------------------------*/
+  .eb-footer-disclaimer {
+	font-size: 92%;
+	display: block;
+	color: #777777;
+	line-height: 4;
+	text-align: center;
+  }
+  /*-------------------------------------------------*\
+	Logged user
+	- Imagem e nome do usuário logado
+	  (normalmente usado em dropdown menu na navbar)
+  \*-------------------------------------------------*/
+  .eb-logged-user {
+	display: block;
+	padding: 20px;
+  }
+  .eb-logged-user__picture {
+	display: block;
+	margin: auto;
+	padding: 2px;
+	border-radius: 50%;
+	border: 1px solid #d5d5d5;
+  }
+  .eb-logged-user__name {
+	display: block;
+	min-width: 180px;
+	margin-top: 10px;
+	font-weight: 500;
+	text-align: center;
+  }
+  /*--------------*\
+	Search modal
+  \*--------------*/
+  .eb-search-modal {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 9999;
+	display: none;
+	padding: 0;
+	padding-top: 25%;
+	background-color: #1e94d2;
+	text-align: center;
+	font-size: 18px;
+  }
+  @media (min-width: 768px) {
+	.eb-search-modal {
+	  padding-left: 10%;
+	  padding-right: 10%;
+	  padding-top: 180px;
+	  font-size: 26px;
+	}
+  }
+  .eb-search-modal.is-shown {
+	display: block;
+  }
+  .eb-search-modal__form {
+	position: relative;
+  }
+  .eb-search-modal__input {
+	display: block;
+	width: 100%;
+	height: 104px;
+	padding-left: 40px;
+	padding-right: 92px;
+	border-radius: 2px;
+	border: none;
 	color: #fff;
-    font-size: 1.3em;
-}
-
-@media (min-width: 768px) { /* screen-sm-min */
-	.eb-tabela-item__painel-exclusao {
-		width: 40%;
-		padding-top: 10px;
+	background-color: #29a1e0;
+	line-height: 104px;
+	text-align: center;
+	outline: none;
+  }
+  .eb-search-modal__input::-moz-placeholder {
+	color: #82c8ed;
+	opacity: 1;
+  }
+  .eb-search-modal__input:-ms-input-placeholder {
+	color: #82c8ed;
+  }
+  .eb-search-modal__input::-webkit-input-placeholder {
+	color: #82c8ed;
+  }
+  .eb-search-modal__input-icon {
+	position: absolute;
+	display: block;
+	width: 52px;
+	height: 104px;
+	top: 0;
+	right: 20px;
+	z-index: 2;
+	color: #115579;
+	line-height: 104px;
+	text-align: center;
+  }
+  .eb-search-modal__input-icon i {
+	pointer-events: auto;
+	cursor: pointer;
+  }
+  .eb-search-modal__input-icon i:hover {
+	color: #0b364c;
+  }
+  .eb-search-modal__controls {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	color: #115579;
+	font-size: 26px;
+  }
+  .eb-search-modal__controls i {
+	pointer-events: auto;
+	cursor: pointer;
+  }
+  .eb-search-modal__controls i:hover {
+	color: #0b364c;
+  }
+  /*---------------------------------------*\
+	Simple panel
+	- Usado para login e "esqueci a senha"
+  \*---------------------------------------*/
+  .eb-simple-panel {
+	color: #777777;
+	text-align: center;
+  }
+  .eb-simple-panel__message {
+	padding: 20px 0px;
+  }
+  .eb-simple-panel__message.is-error {
+	color: #e70500;
+  }
+  .eb-simple-panel__box {
+	padding: 20px;
+	padding-bottom: 5px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	background-color: #fff;
+  }
+  .eb-simple-panel__footer {
+	padding: 10px 0;
+  }
+  /*---------*\
+	Menu
+  \*---------*/
+  .eb-menu__list {
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style: none;
+  }
+  .eb-menu__list--sublist {
+	display: none;
+  }
+  .eb-menu__item {
+	position: relative;
+	display: block;
+  }
+  .eb-menu__item > a {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	color: #1a1a1a;
+	font-weight: 500;
+  }
+  .eb-menu__item > a > i {
+	margin-right: 6px;
+  }
+  .eb-menu__item > a:hover,
+  .eb-menu__item > a:focus {
+	background: #eeeeee;
+	text-decoration: none;
+  }
+  .eb-menu__item.is-active > a {
+	color: #1e94d2;
+  }
+  .eb-menu__item.is-expanded {
+	border-left: 3px solid;
+	border-left-color: #1e94d2;
+	background: #f4f4f4;
+  }
+  .eb-menu__item.is-expanded .eb-menu__navigation-icon:before {
+	content: "\f0d7";
+  }
+  .eb-menu__item.is-expanded > .eb-menu__list {
+	display: block;
+	background: #fafafa;
+  }
+  .eb-menu__item.is-expanded > a {
+	margin-left: -3px;
+  }
+  .eb-menu__item--link > a {
+	padding-left: 36px;
+	font-weight: 400;
+  }
+  .eb-menu__navigation-icon {
+	float: right;
+  }
+  .eb-menu__navigation-icon:before {
+	content: "\f0d9";
+  }
+  /*------------------------------------------*\
+	Box
+	- Para ser usado em indicadores (dahboard)
+  \*------------------------------------------*/
+  .eb-box {
+	padding: 20px;
+	margin-bottom: 15px;
+	border: 1px solid #eeeeee;
+	border-bottom: 3px solid #1e94d2;
+  }
+  .eb-box__icon {
+	float: left;
+	color: #1e94d2;
+  }
+  .eb-box__value {
+	font-size: 1.69em;
+	font-weight: 300;
+	text-align: right;
+  }
+  .eb-box__title {
+	display: block;
+	font-size: 1em;
+	font-weight: 600;
+	text-align: right;
+  }
+  /*-------------------------------------------------*\
+	Graph box
+	- Container para gráfico (dashboard)
+  \*-------------------------------------------------*/
+  .eb-graph-box {
+	margin-bottom: 15px;
+	border: 1px solid #eeeeee;
+	border-bottom: 3px solid #eeeeee;
+  }
+  .eb-graph-box__header {
+	padding: 15px 20px;
+	border-bottom: 1px solid #eeeeee;
+  }
+  .eb-graph-box__content {
+	padding: 15px 20px;
+  }
+  .eb-graph-box__no-data {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	color: #777777;
+  }
+  .eb-graph-box__no-data > i {
+	margin-right: 5px;
+  }
+  .eb-graph-box__title {
+	margin: 0;
+	padding: 0;
+	font-size: 1.1em;
+	font-weight: 500;
+  }
+  .eb-text-xs-left {
+	text-align: left;
+  }
+  .eb-text-xs-right {
+	text-align: right;
+  }
+  .eb-text-xs-center {
+	text-align: center;
+  }
+  .eb-text-xs-justify {
+	text-align: justify;
+  }
+  @media (min-width: 768px) {
+	.eb-text-sm-left {
+	  text-align: left;
 	}
-	
-	.eb-tabela-item__coluna {
-		float: left;
-		margin-left: 0px;
+	.eb-text-sm-right {
+	  text-align: right;
 	}
-	
-	.eb-tabela-item__coluna--detalhes {
-		width: calc(70% - 30px);
+	.eb-text-sm-center {
+	  text-align: center;
 	}
-	
-	.eb-tabela-item__coluna--valores {
-		width: calc(30% - 30px);
-
-		text-align: right;
+	.eb-text-sm-justify {
+	  text-align: justify;
 	}
-}
+  }
+  @media (min-width: 992px) {
+	.eb-text-md-left {
+	  text-align: left;
+	}
+	.eb-text-md-right {
+	  text-align: right;
+	}
+	.eb-text-md-center {
+	  text-align: center;
+	}
+	.eb-text-md-justify {
+	  text-align: justify;
+	}
+  }
+  @media (min-width: 1200px) {
+	.eb-text-lg-left {
+	  text-align: left;
+	}
+	.eb-text-lg-right {
+	  text-align: right;
+	}
+	.eb-text-lg-center {
+	  text-align: center;
+	}
+	.eb-text-lg-justify {
+	  text-align: justify;
+	}
+  }
+  html,
+  body {
+	height: 100%;
+  }
+  .eb-no-scroll {
+	overflow: hidden !important;
+  }
+  .eb-form-label-between {
+	display: inline-block;
+	padding: 0 5px;
+  }
+  .eb-datatable-toolbar {
+	margin-bottom: 10px;
+	margin-top: 30px;
+  }
+  .eb-fa-arrow-left:before {
+	content: "\f0d9";
+  }
+  .eb-fa-arrow-down:before {
+	content: "\f0d7";
+  }
+  .eb-alert-no-results {
+	background-color: #f9f9f9;
+	border-color: #f1f1f1;
+	color: #7a7a7a;
+	line-height: 3;
+	text-align: center;
+  }
+  .eb-alert-no-results hr {
+	border-top-color: #e5e5e5;
+  }
+  .eb-alert-no-results .alert-link {
+	color: #606060;
+  }
+  .eb-label-corner {
+	position: absolute;
+	top: 9px;
+	right: 4px;
+	padding: 2px 5px;
+  }
+  .eb-form-control-inline-sm {
+	display: inline-block !important;
+	width: 33% !important;
+  }
+  .eb-btn-cancel {
+	color: #ffffff;
+	background-color: #a1a1a1;
+	border-color: #949494;
+  }
+  .eb-btn-cancel:focus,
+  .eb-btn-cancel.focus {
+	color: #ffffff;
+	background-color: #888888;
+	border-color: #545454;
+  }
+  .eb-btn-cancel:hover {
+	color: #ffffff;
+	background-color: #888888;
+	border-color: #767676;
+  }
+  .eb-btn-cancel:active,
+  .eb-btn-cancel.active,
+  .open > .dropdown-toggle.eb-btn-cancel {
+	color: #ffffff;
+	background-color: #888888;
+	border-color: #767676;
+  }
+  .eb-btn-cancel:active,
+  .eb-btn-cancel.active,
+  .open > .dropdown-toggle.eb-btn-cancel {
+	background-image: none;
+  }
+  .eb-btn-cancel .badge {
+	color: #a1a1a1;
+	background-color: #ffffff;
+  }
+  .eb-btn-link-danger {
+	color: #d9534f;
+  }
+  .eb-btn-link-danger:hover,
+  .eb-btn-link-danger:active,
+  .eb-btn-link-danger:focus {
+	color: #b52b27;
+	outline: none;
+  }
+  .eb-btn-thin-caret {
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+  }
+  .eb-btn-full-width {
+	width: 100%;
+  }
+  .eb-table-header-solid {
+	background: #fff;
+  }
+  .eb-table-checkbox {
+	min-width: 25px;
+	text-align: center;
+  }
+  .pagination {
+	margin: 0px;
+  }
+  .page-header {
+	padding-bottom: 0px;
+	background-color: #fafbfd;
+  }
+  .page-header h1 {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0;
+	height: 80px;
+	color: #333333;
+  }
+  .eb-page-header-controls {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 80px;
+  }
+  .eb-checkbox-no-margin {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+  }
+  

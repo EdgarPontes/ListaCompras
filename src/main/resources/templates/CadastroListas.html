@@ -7,13 +7,12 @@
 <head>
 <title>Lista de compras</title>
 <link rel="stylesheet" th:href="@{/css/easy-autocomplete.min.css}" />
-<link rel="stylesheet"
-	th:href="@{/css/easy-autocomplete.themes.min.css}" />
+<link rel="stylesheet" th:href="@{/css/easy-autocomplete.themes.min.css}" />
 </head>
 
 <section layout:fragment="conteudo">
 	<div layout:insert="MensagemGeral"></div>
-	<div class="">
+	<div class="container-fluid">
 		<form method="POST" th:action="@{/listas/nova}" th:object="${lista}"
 			class="js-formulario-principal">
 			<input type="hidden" id="lista" th:field="*{uuid}" /> <input
@@ -23,13 +22,13 @@
 				<div class="col-md-12">
 					<div class="">
 
-						<input type="text" class=" js-nome-item-input form-control"
+						<input type="text" class="js-nome-item-input form-control"
 							id="produto" placeholder="Pesquise o produto pelo nome"
 							autofocus="autofocus" data:url="@{/produtos}" />
 					</div>
 					<br />
 					<div class="">
-						<input type="text" class="form-control" th:field="*{email}"
+						<input type="text" class="js-email-item-input form-control" th:field="*{email}"
 							id="email" placeholder="Digite seu email" />
 					</div>
 

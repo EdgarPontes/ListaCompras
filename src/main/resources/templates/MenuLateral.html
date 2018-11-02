@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:data="http://www.thymeleaf.org/extras/data">
+	
+<body>
+<aside class="eb-layout-sidebar  js-sidebar" th:fragment="layout-sidebar">
+	<div class="eb-layout-sidebar__content">
+
+    	<nav class="eb-menu  js-menu">
+      		<ul class="eb-menu__list">
+
+        		<li class="eb-menu__item" >
+          			<a th:href="@{/}"><i class="fa  fa-fw  fa-home"></i><span>Inicio</span></a>
+        		</li>
+
+        		<li class="eb-menu__item">
+                    <a class="btn-xs" data-toggle="modal"
+                    data-target="#cadastroModalProduto" title="Incluir Produto" rel="tooltip"
+                    data-placement="top"><i class="fa fa-plus-circle"></i><span > Novo produto</span></a>
+        		</li>
+        		<li class="eb-menu__item">
+          			<a type="submit" class="" data:acao="salvar"><i class="fa fa-list-ul"></i><span>Nova lista</span></a>
+			    </li>
+
+        		<li class="eb-menu__item">
+          			<a type="submit" class="js-submit-btn" data:acao="salvar"><i class="fa fa-save"></i><span>Salvar</span></a>
+			    </li>
+        		<li class="eb-menu__item">
+                    <a type="submit" class="js-submit-btn" data:acao="cancelar"><i class="fa fa-ban"></i><span>Cancelar</span></a>
+        		</li>	
+        		
+        		<li class="eb-menu__item">
+          			<a href="#" class="js-submit-btn" data:acao="enviarEmail"><i class="fa fa-at"></i><span>Salvar enviar email</span></a>
+        		</li>
+      		</ul>
+    	</nav>
+	</div>
+</aside>
+</body>
+</html>

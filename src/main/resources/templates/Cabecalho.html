@@ -4,49 +4,31 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:data="http://www.thymeleaf.org/extras/data">
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="">
-		<div class="">
-			<a class="navbar-brand" href="#"> <img alt="Easybuy"
-				src="/image/bee.png" /> <span>Easy Buy</span>
-			</a>
-		</div>
-		<div class="">
-			<div class="eb-box__value">
-				Total R$<span class="js-valor-total-box" th:field="*{{valorTotal}}"></span>
-			</div>
-		</div>
-		<div class="botao">
-			<a class="btn btn-link btn-xs" data-toggle="modal"
-				data-target="#cadastroModalProduto" title="Incluir Produto" rel="tooltip"
-				data-placement="top">
-<!-- 				<button type="submit" class="btn btn-primary">Incluir -->
-<!-- 					produto</button> -->
-				<button type="button" class="btn btn-default" aria-label="Alinhar na esquerda" >
-				  <span class="glyphicon glyphicon-plus-sign glyphicon-align-left" aria-hidden="true"></span>
-				</button>
-			</a>
+<body>
+	<nav class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference" id="main-navbar" th:fragment="navbar">
+		
+		<div class="container-fluid">
+			
+			<div class="navbar-header">
+     	<a class="navbar-brand  hidden-xs" href="#">
+        	<img alt="Easy Buy" th:src="@{/image/bee.png}"/>
+      	</a>
 
-			<button type="submit" class="btn  btn-danger  js-submit-btn" data:acao="cancelar">
-				<span class="glyphicon glyphicon-remove-sign glyphicon-align-left" aria-hidden="true"></span>
-			</button>
-			<div class="btn-group">
-				<div class="btn-group dropleft" role="group">
-					<button type="button"
-						class="btn  btn-primary  dropdown-toggle dropdown-toggle-split"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li><a href="#" class="js-submit-btn" data:acao="enviarEmail">Salvar
-								e enviar por e-mail</a></li>
-					</ul>
-				</div>
-				<button type="submit" class="btn  btn-primary  js-submit-btn"
-					data:acao="salvar">Salvar</button>
-			</div>
+      	<ul class="nav  navbar-nav">
+        	<li>
+          		<a href="#" class="js-sidebar-toggle"><i class="fa  fa-bars"></i></a>
+        	</li>
+      	</ul>
+    </div>
+			
+			<ul class="nav navbar-nav  navbar-right">
+				<li><a class="eb-box__value"> Total R$<span
+						class="js-valor-total-box" th:field="*{{valorTotal}}"></span>
+				</a></li>
+			</ul>
+			
 		</div>
-	</div>
-</nav>
-
+		
+	</nav>
+</body>
 </html>

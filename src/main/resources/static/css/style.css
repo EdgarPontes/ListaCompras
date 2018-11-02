@@ -62,8 +62,8 @@
   width: 100%;
   margin: 0;
   border-top: 1px solid #eeeeee;
-  background-color: black;
-  color: white;
+  background-color: #1a1a1a;
+  color: #fff;
   transition: all 0.5s;
 }
 .eb-footer-disclaimer {
