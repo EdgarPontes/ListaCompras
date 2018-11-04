@@ -49,7 +49,7 @@
 	}
 	
 	.lc-tabela-item__coluna--excluir {
-		whidth: calc(20% - 30px);
+		width: calc(20% - 30px);
 	}
 }
 

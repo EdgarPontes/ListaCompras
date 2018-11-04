@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:data="http://www.thymeleaf.org/extras/data"
+	layout:decorate="~{LayoutP}">
+
+<head>
+	<title>Dashboard</title>
+</head>
+
+<section layout:fragment="conteudo">
+
+	<div class="page-header">
+		<div class="container-fluid">
+			<h1>Dashboard</h1>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="eb-box">
+					<div class="eb-box__icon">
+						<i class="fa  fa-shopping-cart  fa-3x"></i>
+					</div>
+					<div class="eb-box__value">R$[[${{valorTotalLista}}]]</div>
+					<div class="eb-box__title">Valor da última lista</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-4">
+				<div class="eb-box">
+					<div class="eb-box__icon">
+						<i class="fa fa-area-chart fa-3x"></i>
+					</div>
+					<div class="eb-box__value" th:text = "${totalDeItensLista}" >1</div>
+					<div class="eb-box__title">Total de itens comprados</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-4">
+				<div class="eb-box">
+					<div class="eb-box__icon">
+						<i class="fa  fa-calendar  fa-3x"></i>
+					</div>
+					<div class="eb-box__value" th:text = "${{dataCompra}}">9</div>
+					<div class="eb-box__title">Data da ultima compra</div>
+				</div>
+			</div>
+		</div>
+		
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-sm-4"> -->
+<!-- 				<div class="eb-box"> -->
+<!-- 					<div class="eb-box__icon"> -->
+<!-- 						<i class="fa  fa-usd  fa-3x"></i> -->
+<!-- 					</div> -->
+<!-- 					<div class="eb-box__value">123</div> -->
+<!-- 					<div class="eb-box__title">Vendas no ano</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+			
+<!-- 			<div class="col-sm-4"> -->
+<!-- 				<div class="eb-box"> -->
+<!-- 					<div class="eb-box__icon"> -->
+<!-- 						<i class="fa  fa-signal  fa-3x"></i> -->
+<!-- 					</div> -->
+<!-- 					<div class="eb-box__value">123</div> -->
+<!-- 					<div class="eb-box__title">Vendas no mês</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+			
+<!-- 			<div class="col-sm-4"> -->
+<!-- 				<div class="eb-box"> -->
+<!-- 					<div class="eb-box__icon"> -->
+<!-- 						<i class="fa  fa-shopping-cart  fa-3x"></i> -->
+<!-- 					</div> -->
+<!-- 					<div class="eb-box__value">R$[[${{valorTotalLista}}]]</div> -->
+<!-- 					<div class="eb-box__title">Ticket médio</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="eb-graph-box">
+					<div class="eb-graph-box__header">
+						<h2 class="eb-graph-box__title">Compras por mês <small>últimos 6 meses</small></h2>
+					</div>
+					<div class="eb-graph-box__content">
+						<!-- <div class="eb-graph-box__no-data">
+							<i class="fa  fa-line-chart  fa-2x"></i>
+							<span>Não há dados</span>
+						</div> -->
+						<div>
+							<canvas id="graficoVendasPorMes" height="160"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+<!-- 			<div class="col-sm-6"> -->
+<!-- 				<div class="eb-graph-box"> -->
+<!-- 					<div class="eb-graph-box__header"> -->
+<!-- 						<h2 class="eb-graph-box__title">Compras <small>últimos 6 meses</small></h2> -->
+<!-- 					</div> -->
+<!-- 					<div class="eb-graph-box__content"> -->
+<!-- 						<div class="eb-graph-box__no-data">
+<!-- 							<i class="fa  fa-line-chart  fa-2x"></i> -->
+<!-- 							<span>Não há dados</span> -->
+<!-- 						</div> --> -->
+<!-- 						<div> -->
+<!-- 							<canvas id="graficoVendasPorOrigem" height="160"></canvas> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+		</div>
+	</div>
+</section>
+
+<th:block layout:fragment="javascript-extra">
+	<script th:src="@{/js/Chart.min.js}"></script>
+</th:block>
+
+</html>

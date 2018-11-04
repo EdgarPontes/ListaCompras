@@ -86,27 +86,14 @@
 	width: 80px;
 }
 
-/* Colunas - Pesquisa de Cervejas */
+/* Colunas - Pesquisa de Produtos */
 .table-items-col-foto {
 	min-width: 50px;
 	width: 50px
 }
 
-.table-items-col-sku {
-	width: 90px;
-	text-align: center;
-}
-
 .table-items-col-nome {
 	
-}
-
-.table-items-col-estilo {
-	width: 120px;
-}
-
-.table-items-col-origem {
-	width: 100px;
 }
 
 .table-items-col-valor {
@@ -114,57 +101,7 @@
 	text-align: right;
 }
 
-.table-items-col-acoes {
-	width: 80px;
-}
-
-/* Colunas - Pesquisa de Estilos */
-.table-estilos-col-codigo {
-	width: 80px;
-}
-
-/* Colunas - Pesquisa de Clientes */
-.table-clientes-col-nome {
-	
-}
-
-.table-clientes-col-tipo-pessoa {
-	width: 120px;
-	text-align: center;
-}
-
-.table-clientes-col-cpf-cnpj {
-	width: 140px;
-	text-align: right;
-}
-
-.table-clientes-col-telefone {
-	width: 140px;
-	text-align: right;
-}
-
-.table-clientes-col-cidade-estado {
-	width: 140px;
-	text-align: right;
-}
-
-/* Colunas - Pesquisa de cidades */
-.table-cidades-col-nome {
-	
-}
-
-.table-cidades-col-estado {
-	width: 140px;
-	text-align: right;
-}
-
-/* Colunas - Pesquisa de usuários */
-.table-usuarios-col-status {
-	width: 30px;
-	text-align: center;
-}
-
-/* Tabela Cervejas página de Venda */
+/* Tabela Produtos página de Lista */
 .lc-tabela-items {
 	margin-bottom: 15px;
 }
@@ -203,7 +140,7 @@
 }
 
 /* Box */
-.negativo .aw-box__value {
+.negativo .eb-box__value {
 	color: red;
 }
 
@@ -252,12 +189,6 @@
 	font-weight: 500;
 	font-size: 1.1em;
 	display: block;
-}
-
-.lc-tabela-item-origem {
-	color: #aaa;
-	display: block;
-	font-weight: 200;
 }
 
 .lc-tabela-item-campo-quantidade {

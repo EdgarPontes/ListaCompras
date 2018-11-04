@@ -97,6 +97,10 @@ public class Lista {
 		this.itens.forEach(i -> i.setLista(this));
 	}
 	
+	public Integer getTotalDeItens() {
+		return this.itens.size();
+	}
+	
 	public BigDecimal getValorTotalItens() {
 		return getItens().stream()
 				.map(ItemLista::getValorTotal)
