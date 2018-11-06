@@ -1,6 +1,7 @@
 package com.edgar.listacompras.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -47,4 +48,7 @@ public class CadastroListaService implements ListasQueries{
 		return lista;
 	}
 	
+	public List<Lista> buscarTodas(){
+		return listas.findAll();
+	}
 }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{LayoutP}"
+	xmlns:data="http://www.thymeleaf.org/extras/data">
+<head>
+<title>Listas de compras</title>
+<link rel="stylesheet" th:href="@{/css/easy-autocomplete.min.css}" />
+<link rel="stylesheet"
+	th:href="@{/css/easy-autocomplete.themes.min.css}" />
+</head>
+
+<section layout:fragment="conteudo">
+	<div layout:insert="MensagemGeral"></div>
+	<div class="container-fluid">
+
+		<a th:href="@{/listas/nova}" class="btn btn-primary">
+			<i class="fa  fa-fw  fa-plus"></i>
+			Nova Lista
+		</a>
+		
+		<div class="row" style="margin-top: 20px">
+			<div class="col-md-12">
+				<div class="table-responsive text-center">					
+					<table class="table">
+	
+						<tr>
+							<th>Código</th>
+							<th>Data</th>
+							<th>Valor</th>
+							<th>Visualizar</th>
+						</tr>
+						<tr th:each="lista : ${listas}">
+							<td th:text="${lista.codigo}"></td>
+							<td th:text="${{lista.dataCriacao}}"></td>
+							<td th:text="${lista.valorTotal}"></td>
+							<td>
+								<button class="btn btn-primary">
+									<i class="fa  fa-fw  fa-eye"></i>
+								</button>
+							</td>
+						</tr>
+	
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	</div>
+</section>
+<th:block layout:fragment="javascript-extra">
+	<script src="/js/jquery.easy-autocomplete.min.js"></script>
+	<script src="/js/handlebars.min.js"></script>
+
+	<script src="/js/lista.autocomplete-itens.js"></script>
+	<script src="/js/lista.tabela-itens.js"></script>
+	<script src="/js/lista.js"></script>
+	<script src="/js/lista.botao-submit.js"></script>
+</th:block>
+</html>

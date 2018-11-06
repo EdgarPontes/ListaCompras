@@ -38,20 +38,20 @@ public class ProdutosController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView salvar(@Valid Produto produto, Lista lista, BindingResult result, Model model,
+	public void salvar(@Valid Produto produto, Lista lista, BindingResult result, Model model,
 			RedirectAttributes attributes) {
 		
 		System.out.println(produto.toString());
 		if (result.hasErrors()) {
-			return novo(produto);
+//			return novo(produto);
 		}
 
 		cadastroProdutoService.salvar(produto);
 		attributes.addFlashAttribute("mensagem", "Produto salva com sucesso!");
-		ModelAndView mv = new ModelAndView("redirect:/listas/nova");
+		ModelAndView mv = new ModelAndView();
 		mv.addObject(lista);
 		mv.addObject(new Produto());
-		return mv;
+//		return mv;
 	}
 
 	@RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE)

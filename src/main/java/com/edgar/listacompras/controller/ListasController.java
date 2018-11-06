@@ -39,6 +39,15 @@ public class ListasController {
 	@Autowired
 	private CadastroListaService cadastroListaService;
 
+	@GetMapping
+	public ModelAndView listas() {
+		ModelAndView mv = new ModelAndView("Listas");
+		
+		mv.addObject("listas", cadastroListaService.buscarTodas());
+		
+		return mv;
+	}
+	
 	@GetMapping("/nova")
 	public ModelAndView nova(Lista lista, Produto produto) {
 		ModelAndView mv = new ModelAndView("CadastroListas");

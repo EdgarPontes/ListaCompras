@@ -43,7 +43,7 @@ public class CadastroProdutoService implements ProdutosQueries{
 		String jpql = "select p from "+ Produto.class.getName() 
 				+" p where lower(nome) like lower(:nome)";
 		List<Produto> produtosFiltrados = manager.createQuery(jpql, Produto.class)
-					.setParameter("nome", nome + "%")
+					.setParameter("nome", "%" + nome + "%")
 					.getResultList();
 		
 		return produtosFiltrados;
