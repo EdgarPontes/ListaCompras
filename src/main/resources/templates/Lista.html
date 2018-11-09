@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{LayoutP}"
+	xmlns:data="http://www.thymeleaf.org/extras/data">
+<head>
+<title>Listas de itens</title>
+</head>
+
+<section layout:fragment="conteudo">
+	<div class="container-fluid">
+	<a th:href="@{/listas}" class="btn btn-primary">
+			<i class="fa  fa-fw  fa-arrow-left"></i>
+			Voltar
+		</a>
+		<br/>
+		<div class="lc-tabela-item" th:each="item : ${itens}">
+
+			<div class="lc-tabela-item__coluna  lc-tabela-item__coluna--detalhes">
+				<span class="lc-tabela-item-nome" th:text="${item.produto.nome}"></span>
+				<span class="label  label-default"
+					th:text="${item.produto.codigoBarras}"></span> <span class=""
+					th:text="${item.produto.descricao}"></span>
+			</div>
+
+			<div class="lc-tabela-item__coluna  lc-tabela-item__coluna--valores">
+				<div class="lc-tabela-produto-valor-pequeno">
+					<span class="eb-tabela-item-input js-tabela-item-quantidade"
+						th:text="${item.quantidade}" ></span> <span>x <span
+						class="eb-tabela-item-input js-tabela-item-valor"
+						th:text="${{item.valorUnitario}}" ></span>
+					</span> <span>= R$[[${{item.valorTotal}}]]</span>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+</html>

@@ -5,10 +5,7 @@
 	layout:decorate="~{LayoutP}"
 	xmlns:data="http://www.thymeleaf.org/extras/data">
 <head>
-<title>Listas de compras</title>
-<link rel="stylesheet" th:href="@{/css/easy-autocomplete.min.css}" />
-<link rel="stylesheet"
-	th:href="@{/css/easy-autocomplete.themes.min.css}" />
+	<title>Listas de compras</title>
 </head>
 
 <section layout:fragment="conteudo">
@@ -36,9 +33,9 @@
 							<td th:text="${{lista.dataCriacao}}"></td>
 							<td th:text="${lista.valorTotal}"></td>
 							<td>
-								<button class="btn btn-primary">
+								<a class="btn btn-primary" th:href="@{/listas/{codigoLista}(codigoLista=${lista.codigo})}">
 									<i class="fa  fa-fw  fa-eye"></i>
-								</button>
+								</a>
 							</td>
 						</tr>
 	
@@ -48,15 +45,5 @@
 		</div>
 
 	</div>
-	</div>
 </section>
-<th:block layout:fragment="javascript-extra">
-	<script src="/js/jquery.easy-autocomplete.min.js"></script>
-	<script src="/js/handlebars.min.js"></script>
-
-	<script src="/js/lista.autocomplete-itens.js"></script>
-	<script src="/js/lista.tabela-itens.js"></script>
-	<script src="/js/lista.js"></script>
-	<script src="/js/lista.botao-submit.js"></script>
-</th:block>
 </html>

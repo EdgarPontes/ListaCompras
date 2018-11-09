@@ -43,7 +43,7 @@ public class ListasController {
 	public ModelAndView listas() {
 		ModelAndView mv = new ModelAndView("Listas");
 		
-		mv.addObject("listas", cadastroListaService.buscarTodas());
+		mv.addObject("listas", cadastroListaService.buscarTodasPorEmail("edgarponte@gmail.com"));
 		
 		return mv;
 	}
@@ -57,6 +57,15 @@ public class ListasController {
 		mv.addObject(produto);
 		
 		mv.addObject("itens", lista.getItens());
+		
+		return mv;
+	}
+	
+	@GetMapping("/{codigoLista}")
+	public ModelAndView buscarLista (@PathVariable("codigoLista") Long codigoLista) {
+		ModelAndView mv = new ModelAndView("Lista");
+		
+		mv.addObject("itens", cadastroListaService.buscarItensLista(codigoLista));
 		
 		return mv;
 	}

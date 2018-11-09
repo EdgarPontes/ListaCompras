@@ -10,8 +10,10 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.edgar.listacompras.model.ItemLista;
 import com.edgar.listacompras.model.Lista;
 import com.edgar.listacompras.repository.Listas;
+import com.edgar.listacompras.repository.ItemListaRepository;
 import com.edgar.listacompras.repository.lista.ListasQueries;
 
 @Service
@@ -19,6 +21,9 @@ public class CadastroListaService implements ListasQueries{
 
 	@Autowired
 	private Listas listas;
+	
+	@Autowired
+	private ItemListaRepository itemListaRepository;
 	
 	@PersistenceContext
 	private EntityManager manager;
@@ -48,7 +53,12 @@ public class CadastroListaService implements ListasQueries{
 		return lista;
 	}
 	
-	public List<Lista> buscarTodas(){
-		return listas.findAll();
+	public List<Lista> buscarTodasPorEmail(String email){
+		return listas.findByEmail(email);
+	}
+	
+	public List<ItemLista> buscarItensLista(Long idLista) {
+		
+		return itemListaRepository.findByListaCodigo(idLista);
 	}
 }
