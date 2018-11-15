@@ -13,10 +13,9 @@
 <section layout:fragment="conteudo">
 	<div layout:insert="MensagemGeral"></div>
 	<div class="container-fluid">
-		<form method="POST" th:action="@{/listas/nova}" th:object="${lista}"
-			class="js-formulario-principal">
-			<input type="hidden" id="lista" th:field="*{uuid}" /> <input
-				type="hidden" th:field="*{codigo}" />
+		<form method="POST" th:action="@{/listas/nova}" th:object="${lista}" class="js-formulario-principal">
+			<input type="hidden" id="lista" name="lista" th:field="*{uuid}" /> 
+			<input type="hidden" th:field="*{codigo}" />
 
 			<div class="row">
 				<div class="col-md-12">
@@ -27,9 +26,16 @@
 							autofocus="autofocus" data:url="@{/produtos}" />
 					</div>
 					<br />
-					<div class="">
+					<div class="form-group">
+					<div>
+						<input type="text" class="js-nomeLista-item-input form-control" th:field="*{nomeLista}"
+						id="nomeLista" placeholder="Digite o tipo da lista" />					
+					</div>
+					<br/>
+					<div>
 						<input type="text" class="js-email-item-input form-control" th:field="*{email}"
-							id="email" placeholder="Digite seu email" />
+						id="email" placeholder="Digite seu email" />
+					</div>
 					</div>
 
 				</div>
@@ -48,16 +54,15 @@
 			</div>
 		</form>
 	</div>
-
 	<th:block th:replace="TemplateAutocompleteProduto"></th:block>
 </section>
 <th:block layout:fragment="javascript-extra">
-	<script src="/js/jquery.easy-autocomplete.min.js"></script>
-	<script src="/js/handlebars.min.js"></script>
+	<script th:src="@{/js/jquery.easy-autocomplete.min.js}"></script>
+	<script th:src="@{/js/handlebars.min.js}"></script>
 
-	<script src="/js/lista.autocomplete-itens.js"></script>
-	<script src="/js/lista.tabela-itens.js"></script>
-	<script src="/js/lista.js"></script>
-	<script src="/js/lista.botao-submit.js"></script>
+	<script th:src="@{/js/lista.autocomplete-itens.js}"></script>
+	<script th:src="@{/js/lista.tabela-itens.js}"></script>
+	<script th:src="@{/js/lista.js}"></script>
+	<script th:src="@{/js/lista.botao-submit.js}"></script>
 </th:block>
 </html>

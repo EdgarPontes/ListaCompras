@@ -6,6 +6,6 @@ import com.edgar.listacompras.model.Produto;
 
 public interface ProdutosQueries {
 
-    public List<Produto> findByNome(String nome);
+    public List<Produto> buscarPorNome(String nome);
     
 }

@@ -23,13 +23,15 @@
 					<table class="table">
 	
 						<tr>
-							<th>Código</th>
-							<th>Data</th>
-							<th>Valor</th>
-							<th>Visualizar</th>
+							<th class="text-center">Código</th>
+							<th class="text-center">Tipo lista</th>
+							<th class="text-center">Data</th>
+							<th class="text-center">Valor</th>
+							<th class="text-center">Visualizar</th>
 						</tr>
 						<tr th:each="lista : ${listas}">
 							<td th:text="${lista.codigo}"></td>
+							<td th:text="${lista.nomeLista}"></td>
 							<td th:text="${{lista.dataCriacao}}"></td>
 							<td th:text="${lista.valorTotal}"></td>
 							<td>

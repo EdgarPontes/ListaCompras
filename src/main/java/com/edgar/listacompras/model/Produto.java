@@ -9,11 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 @Entity
 @Table(name = "produto")
@@ -28,10 +28,7 @@ public class Produto implements Serializable {
 	@NotBlank
 	private String nome;
 
-	@NotNull(message = "Valor é obrigatório")
-	@DecimalMin(value = "0.10", message = "O valor da cerveja deve ser maior que R$0,50")
-	@DecimalMax(value = "9999999.99", message = "O valor da cerveja deve ser menor que R$9.999.999,99")
-	@Column(name = "valor_produto")
+	@JsonFormat(shape=Shape.STRING)
 	private BigDecimal valorProduto;
 
 	@Column(name = "codigo_barras")

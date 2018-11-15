@@ -37,6 +37,8 @@ public class Lista {
 	
 	private String email;
 	
+	private String nomeLista;
+	
 	@Transient
 	private String uuid;
 	
@@ -92,6 +94,14 @@ public class Lista {
 		return codigo == null;
 	}
 	
+	public String getNomeLista() {
+		return nomeLista;
+	}
+
+	public void setNomeLista(String nomeLista) {
+		this.nomeLista = nomeLista;
+	}
+
 	public void adicionarItens(List<ItemLista> itens) {
 		this.itens = itens;
 		this.itens.forEach(i -> i.setLista(this));

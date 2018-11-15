@@ -11,9 +11,9 @@
 	<title>Lista de compras</title>
 	
 <!-- 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" /> -->
-	<link rel="stylesheet" type="text/css" href="/css/vendors.min.css" />
-	<link rel="stylesheet" type="text/css" href="/css/easybuy.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/lista-compra.css" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/vendors.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/easybuy.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/lista-compra.css}" />
 	
 </head>
 
@@ -28,24 +28,21 @@
 		<div th:replace="Footer :: layout-footer"></div>
 		
 	</div>
-	
-	<div layout:insert="CadastroProduto"></div>
-	
-<script src="/js/vendors.min.js"></script>
-<script src="/js/easybuy.js"></script>
+		
+<script th:src="@{/js/vendors.js}"></script>
+<script th:src="@{/js/easybuy.js}"></script>
 
 <!-- <script src="/js/jquery.maskMoney.min.js"></script> -->
-<script src="/js/jquery.masknumber.min.js"></script>
-<script src="/js/jquery.mask.min.js"></script>
-<script src="/js/produto.js"></script>
+<script th:src="@{/js/jquery.masknumber.min.js}"></script>
+<script th:src="@{/js/jquery.mask.min.js}"></script>
 
-<script src="/js/bootstrap-datepicker.min.js"></script>
+<script th:src="@{/js/bootstrap-datepicker.min.js}"></script>
 <!-- <script src="/js/bootstrap-datepicker.pt-BR.min.js"></script> -->
 
-<script src="/js/numeral.min.js"></script>
-<script src="/js/pt-br.min.js"></script>
+<script th:src="@{/js/numeral.min.js}"></script>
+<script th:src="@{/js/pt-br.min.js}"></script>
 
-<script src="/js/listaCompras.js"></script>
+<script th:src="@{/js/listaCompras.js}"></script>
 
 <th:block layout:fragment="javascript-extra"></th:block>
 </body>

@@ -5,30 +5,40 @@
 	xmlns:data="http://www.thymeleaf.org/extras/data">
 
 <body>
-	<nav class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference" id="main-navbar" th:fragment="navbar">
-		
-		<div class="container-fluid">
-			
-			<div class="navbar-header">
-     	<a class="navbar-brand  hidden-xs" href="#">
-        	<img alt="Easy Buy" th:src="@{/image/bee.png}"/>
-      	</a>
+	<nav
+		class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference"
+		id="main-navbar" th:fragment="navbar">
 
-      	<ul class="nav  navbar-nav">
-        	<li>
-          		<a href="#" class="js-sidebar-toggle"><i class="fa  fa-bars"></i></a>
-        	</li>
-      	</ul>
-    </div>
-			
+		<div class="container-fluid">
+
+			<div class="navbar-header">
+				<a class="navbar-brand  hidden-xs" href="#"> <img alt="Easy Buy"
+					th:src="@{/image/bee.png}" />
+				</a>
+
+				<ul class="nav  navbar-nav">
+					<li><a href="#" class="js-sidebar-toggle"><i
+							class="fa  fa-bars"></i></a></li>
+				</ul>
+			</div>
+
+
+			<ul class="nav navbar-nav  navbar-right">
+		    	<li>
+		    		<p class="navbar-text" th:text="${#authentication.principal.usuario.username}">Usuário</p>
+		    	</li>
+		    
+		    	<li>
+		        	<a th:href="@{/logout}"><em class="fa  fa-sign-out"></em></a>
+		      	</li> 
+		    </ul>
 			<ul class="nav navbar-nav  navbar-right">
 				<li><a class="eb-box__value"> Total R$<span
 						class="js-valor-total-box" th:field="*{{valorTotal}}"></span>
 				</a></li>
 			</ul>
-			
 		</div>
-		
+
 	</nav>
 </body>
 </html>
